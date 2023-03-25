@@ -1,43 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
+﻿using System;
+using MyNamespace;
 using UnityEngine;
 
-public class PlayerMoveController : MonoBehaviour
+namespace DefaultNamespace
 {
-    // Start is called before the first frame update
-    [Range(0f, 2f)] [SerializeField] private float _speed = 1f;
-    private IHorizontalInputProvider _horizontalInputProvider;
-    void Awake ()
+    public class PlayerMoveController : MonoBehaviour
     {
-        _horizontalInputProvider = new HorizontalInputController();
+        [Range(0f, 2f)] [SerializeField] private float _speed = 1f;
+        [SerializeField] private float _levelBorderX;
+        private IHorizontalInputProvider _horizontalInputProvider;
+
+        private void Awake()
+        {
+            _horizontalInputProvider = new HorizontalInputController();
+        }
+
+        private void Update()
+        {
+            _horizontalInputProvider.OnUpdate();
+        }
+
+        //Перемещение игрока _ только на FixedUpdate
+        private void FixedUpdate()
+        {
+            //Задаём позицию игроку
+            var position = transform.position;
+            //Перемещение по оси X
+            position.x += _horizontalInputProvider.GetCurrentInput() * _speed;
+
+            position.x = Mathf.Clamp(position.x, -_levelBorderX, _levelBorderX);
+            //Перезаписываем позицию игроку
+            transform.position = position;
+
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        var position = transform.position;
-        position.x += _horizontalInputProvider.GetCurrentInput() * _speed;
-    }
-}
-
-public class HorizontalInputController : IHorizontalInputProvider //движение объекта по горизонтали
-{
-    public float _horizontalInput;
-
-    public void OnUpdate()
-    {
-        _horizontalInput = Input.GetAxis("Horizontal");
-    }
-
-    public float GetCurrentInput()
-    {
-        return _horizontalInput;
-    }
-    
-}
-
-public interface IHorizontalInputProvider
-{
-    float GetCurrentInput();
 }
