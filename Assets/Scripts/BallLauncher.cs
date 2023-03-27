@@ -12,7 +12,7 @@ namespace DefaultNamespace
     {
         [SerializeField] private float _launchSpeed = 1f;
         [SerializeField] private Rigidbody2D _ball;
-        private IAimInputProvider _inputProvider;
+        [SerializeField] private IAimInputProvider _inputProvider;
 
         private void Start()
         {
@@ -46,13 +46,13 @@ namespace DefaultNamespace
             _inputProvider.OnUpdate();
         }
 
-        private void OnDrawGizmos()
-        {
-            if (Application.isPlaying) return;
-            Gizmos.color = Color.red;
-            var targetPos = _inputProvider.GetAimTarget();
-            var initialPos = transform.position;
-            Gizmos.DrawLine(initialPos, targetPos);
-        }
+        // private void OnDrawGizmos()
+        // {
+        //     if (Application.isPlaying) return;
+        //     Gizmos.color = Color.red;
+        //     var targetPos = _inputProvider.GetAimTarget();
+        //     var initialPos = transform.position;
+        //     Gizmos.DrawLine(initialPos, targetPos);
+        // }
     }
 }

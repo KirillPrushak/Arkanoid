@@ -7,6 +7,7 @@ namespace MyNamespace
     {
         public event Action OnLaunch;
         private Vector3 _aimTarget;
+        // ReSharper disable Unity.PerformanceAnalysis
         public void OnUpdate()
         {
             ProcessLaunchInput();
@@ -25,10 +26,19 @@ namespace MyNamespace
 
         private void ProcessLaunchInput()
         {
-            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
+            // если щёлкнули лкм или нажали пробел
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                OnLaunch?.Invoke(); //с проверкой на null, исключение не падает
-                // OnLaunch(); //без проверки на null. Если никто не подписан, то упадёт исключение
+                OnLaunch?.Invoke(); // с проверкой на null, исключение не падает
+
+                // такая же запись, более длинная
+                // if (OnLaunch != null)
+                // {
+                //     OnLaunch.Invoke();
+                // }
+
+
+                // OnLaunch(); // без проверки на null. Если никто не подписан, то упадёт исключение
             }
         }
     }
