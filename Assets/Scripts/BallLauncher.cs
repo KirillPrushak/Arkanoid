@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.PlayerLoop;
 using UnityEngine.WSA;
+using Application = UnityEngine.Application;
 
 namespace DefaultNamespace
 {
@@ -43,6 +44,15 @@ namespace DefaultNamespace
         private void Update()
         {
             _inputProvider.OnUpdate();
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (Application.isPlaying) return;
+            Gizmos.color = Color.red;
+            var targetPos = _inputProvider.GetAimTarget();
+            var initialPos = transform.position;
+            Gizmos.DrawLine(initialPos, targetPos);
         }
     }
 }
