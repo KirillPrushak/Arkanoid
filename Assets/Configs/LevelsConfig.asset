@@ -13,15 +13,9 @@ MonoBehaviour:
   m_Name: LevelsConfig
   m_EditorClassIdentifier: 
   _levels:
-  - SceneName: 
-    Completed: 0
   - SceneName: Level1
-    Completed: 0
+    Completed: 1
   - SceneName: Level2
-    Completed: 0
+    Completed: 1
   - SceneName: Level3
-    Completed: 0
-  - SceneName: Level4
-    Completed: 0
-  - SceneName: Level5
-    Completed: 0
+    Completed: 1
