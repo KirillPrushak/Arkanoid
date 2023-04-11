@@ -9,15 +9,18 @@ namespace DefaultNamespace
         // {
         //     if (collision.transform.TryGetComponent<Ball>(out var ball))
         //     {
-        //         var rigidbody = ball.GetComponent<Rigidbody2D>();
-        //         ProcessCollision(transform.position, rigidbody);
+        //         var rigitbody = ball.GetComponent<Rigidbody2D>();
+        //
+        //         ProcessCollision(transform.position, rigitbody);
         //     }
         // }
         //
-        // private void ProcessCollision(Vector3 transformPosition, Rigidbody2D rigidbody)
+        // private void ProcessCollision(Vector3 centerPos, Rigidbody2D rigitbody)
         // {
-        //     var ballPos = rigidbody.position;
-        //     Vector3 ballVelocity = rigidbody.velocity;
+        //     Vector3 ballPos = rigitbody.position;
+        //     Vector3 ballVelocity = rigitbody.velocity;
+        //     
+        //     
         // }
     }
 }

@@ -8,9 +8,9 @@ namespace DefaultNamespace
     {
         [Range(0f, 2f)] [SerializeField] private float _speed = 1f;
         [SerializeField] private float _levelBorderX;
-        private IHorizontalInputProvider _horizontalInputProvider;
+        private HorizontalInputProviderBase _horizontalInputProvider;
 
-        private void Awake()
+        private void Start()
         {
             _horizontalInputProvider = new HorizontalInputController();
         }
@@ -21,12 +21,13 @@ namespace DefaultNamespace
         }
 
         //Перемещение игрока _ только на FixedUpdate
+        
         private void FixedUpdate()
         {
             //Задаём позицию игроку
             var position = transform.position;
             //Перемещение по оси X
-            position.x += _horizontalInputProvider.GetCurrentInput() * _speed;
+            position.x = _horizontalInputProvider.GetCurrentInput(position.x, _speed);
 
             position.x = Mathf.Clamp(position.x, -_levelBorderX, _levelBorderX);
             //Перезаписываем позицию игроку

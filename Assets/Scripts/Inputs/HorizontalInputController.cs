@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using MyNamespace;
 using UnityEngine;
 
-public partial class HorizontalInputController : MonoBehaviour, IHorizontalInputProvider
+namespace DefaultNamespace
 {
-    //Создание интерфейса - задачи конкретных методов, для обработки ввода.
-    [SerializeField] private float _horizontalInput;
-
-    //Нажимает ли игрок кнопку передвижения.
-    public void OnUpdate()
+    public class HorizontalInputController : HorizontalInputProviderBase
     {
-        //Универсальный ввод управления.
-        _horizontalInput = Input.GetAxis("Horizontal");
-    }
+        //Создание интерфейса - задачи конкретных методов, для обработки ввода.
+        [SerializeField] private float _horizontalInput;
 
-    //Возврат к перемещению
-    public float GetCurrentInput()
-    {
-        return _horizontalInput;
+        //Нажимает ли игрок кнопку передвижения.
+        public override void OnUpdate()
+        {
+            //Универсальный ввод управления.
+            _horizontalInput = Input.GetAxis("Horizontal");
+        }
+
+        //Возврат к перемещению
+        public override float GetCurrentInput(float currentPosition, float speed)
+        {
+            return currentPosition + _horizontalInput * speed;
+        }
     }
 }

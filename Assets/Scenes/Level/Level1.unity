@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -352,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -516,6 +524,7 @@ GameObject:
   - component: {fileID: 779685787}
   - component: {fileID: 779685786}
   - component: {fileID: 779685791}
+  - component: {fileID: 779685792}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -538,12 +547,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 0.2
   m_Material: {fileID: 6200000, guid: 1400746b856e0ef42808f46f861d2b16, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &779685787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -661,7 +670,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad8937773814a3e855a31b0ca25f799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagePerHit: 1
+  _damagePerHit: 0
+--- !u!114 &779685792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779685785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c960e001bf7d4816b20957d80d022230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockManager: {fileID: 322901950}
 --- !u!1 &863336234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1069,6 +1095,10 @@ PrefabInstance:
     - target: {fileID: 2638605877927264329, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_Name
       value: Block (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder
@@ -1461,7 +1491,6 @@ GameObject:
   - component: {fileID: 1607706955}
   - component: {fileID: 1607706954}
   - component: {fileID: 1607706956}
-  - component: {fileID: 1607706957}
   - component: {fileID: 1607706958}
   - component: {fileID: 1607706959}
   - component: {fileID: 1607706960}
@@ -1551,32 +1580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953ba5e9892787c44b93428d2f1190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1607706957
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607706953}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.85, y: 4.85}
-    newSize: {x: 4.85, y: 4.85}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.85, y: 4.85}
-  m_EdgeRadius: 0
 --- !u!114 &1607706958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,7 +1592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdca04668b364b6793ff8999e56d6be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 0.4
   _levelBorderX: 1.35
 --- !u!114 &1607706959
 MonoBehaviour:
@@ -1650,7 +1653,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1767486591
 Transform:
   m_ObjectHideFlags: 0
@@ -1812,6 +1815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1969,6 +1976,10 @@ PrefabInstance:
     - target: {fileID: 2638605877927264329, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_Name
       value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354196421983791016, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
+      propertyPath: _hp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3489052405220039587, guid: 7b2313858106bff4e8cc6383ea7d76ac, type: 3}
       propertyPath: m_RootOrder

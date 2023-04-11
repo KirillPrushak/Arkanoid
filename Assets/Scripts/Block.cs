@@ -8,7 +8,7 @@ namespace DefaultNamespace
 
         public void Damage(int damage)
         {
-            _hp-=damage;
+            _hp -= damage;
             if (_hp <= 0)
             {
                 Destroy(gameObject);
